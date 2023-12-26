@@ -1,11 +1,21 @@
 import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { AppController } from './app.controller';
+import { app } from '@azure/functions';
 
-export async function createApp(): Promise<INestApplication> {
-  const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
+async function createFucntion() {
+  const appContext = await NestFactory.createApplicationContext(AppModule);
+  const appController = appContext.get(AppController)
   
-  await app.init();
-  return app;
+  app.http('main', {
+    methods: ['GET', 'POST'],
+    handler: async (request, context) => {
+      return {
+        body: appController.getHello(),
+      }
+    }
+  })
 }
+
+createFucntion()

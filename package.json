@@ -5,6 +5,7 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "main": "dist/*.azure.js",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -24,8 +25,7 @@
   "dependencies": {
     "@angular-devkit/core": "^17.0.7",
     "@angular-devkit/schematics": "^17.0.7",
-    "@azure/functions": "^1.0.3",
-    "@nestjs/azure-func-http": "^0.10.0",
+    "@azure/functions": "^4.1.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
