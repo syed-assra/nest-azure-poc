@@ -83,7 +83,8 @@
       "<rootDir>/src/app/main.ts",
       ".mock.ts",
       "main.ts",
-      "main.azure.ts"
+      "user.azure.ts",
+      "product.azure.ts"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
