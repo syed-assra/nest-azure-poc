@@ -2,12 +2,8 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 @Injectable()
-export class UserService {
-  create(): string {
-    return 'User is created successfully!';
-  }
-
-  async getGroupProposals(): Promise<string> {
+export class InsureMOService {
+  async pttstGroupProposals(): Promise<Record<string, any>> {
     let response;
 
     const options = {
@@ -20,15 +16,14 @@ export class UserService {
 
     try {
       response = await axios.get('https://pttst-gw.insuremo.com/afli/1.0/afli-bs/groupProposals/GR000012', options)
-      console.log("Response", response)
     } catch (error) {
       console.log("Error:", error);
     }
 
-    return response;
+    return response.data;
   }
 
-  async getGroupProposals_2(): Promise<string> {
+  async sdbGroupProposals(): Promise<Record<string, any>> {
     let response;
 
     const options = {
@@ -41,19 +36,10 @@ export class UserService {
 
     try {
       response = await axios.get('https://sandbox-2-sg-gw.insuremo.com/afli/1.0/afli-bs/groupProposals/GR000012', options)
-      console.log("Response", response)
     } catch (error) {
       console.log("Error:", error);
     }
 
-    return response;
-  }
-
-  update(): string {
-    return 'User is updated successfully!';
-  }
-
-  delete(): string {
-    return 'User is deleted successfully!';
+    return response.data;
   }
 }
