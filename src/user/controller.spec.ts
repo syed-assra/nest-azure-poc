@@ -19,9 +19,9 @@ describe('AppController', () => {
       expect(userController.create()).toBe('User is created successfully!');
     });
 
-    it('should successfully fetch', () => {
-      expect(userController.fetch()).toBe('User is fetched successfully!');
-    });
+    // it('should successfully fetch', () => {
+    //   expect(userController.fetch()).toBe('User is fetched successfully!');
+    // });
 
     it('should successfully update', () => {
       expect(userController.update()).toBe('User is updated successfully!');

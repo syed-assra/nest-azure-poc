@@ -3,14 +3,18 @@ import { UserService } from './service';
 
 @Controller()
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   create(): string {
     return this.userService.create();
   }
 
-  fetch(): string {
-    return this.userService.fetch();
+  async fetch(): Promise<string> {
+    return this.userService.getGroupProposals();
+  }
+
+  async getGroupProposals_2(): Promise<string> {
+    return this.userService.getGroupProposals_2();
   }
 
   update(): string {

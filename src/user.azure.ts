@@ -6,7 +6,7 @@ import { app } from '@azure/functions';
 async function userFucntion() {
   const userContext = await NestFactory.createApplicationContext(UserModule);
   const userController = userContext.get(UserController)
-  
+
   app.http('user_create', {
     methods: ['POST'],
     route: 'user',
@@ -22,7 +22,17 @@ async function userFucntion() {
     route: 'user',
     handler: async (request, context) => {
       return {
-        body: userController.fetch(),
+        body: await userController.fetch(),
+      }
+    }
+  })
+
+  app.http('getGroupProposals_2', {
+    methods: ['GET'],
+    route: 'getGroupProposals_2',
+    handler: async (request, context) => {
+      return {
+        body: await userController.getGroupProposals_2(),
       }
     }
   })
